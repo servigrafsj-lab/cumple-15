@@ -32,7 +32,7 @@ body{font-family:'Montserrat',sans-serif;background:var(--dark);color:var(--whit
   100%{opacity:0;transform:translateY(100vh) rotate(360deg)}
 }
 
-canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
+canvas{position:fixed;inset:0;z-index:9998;pointer-events:none}
 
 #btn-musica{
   position:fixed;bottom:24px;right:24px;z-index:9999;
@@ -145,7 +145,7 @@ canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
 }
 
 /* ═══ COUNTDOWN ═══ */
-.sec-countdown{background:linear-gradient(180deg,#0d0508 0%,#1a0a10 100%);padding:4rem 2rem;text-align:center}
+.sec-countdown{background:linear-gradient(160deg,#0a0015 0%,#12003a 100%);padding:4rem 2rem;text-align:center}
 .countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:380px;margin:0 auto}
 .countdown-item{
   background:var(--box-bg);
@@ -159,7 +159,7 @@ canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
 .countdown-lbl{font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ps);margin-top:4px;display:block}
 
 /* ═══ INVITADOS ═══ */
-.sec-invitados{background:var(--dark);padding:4rem 2rem;text-align:center}
+.sec-invitados{background:linear-gradient(160deg,#1a0a10 0%,#2a0518 100%);padding:4rem 2rem;text-align:center}
 .invitados-box{
   background:var(--box-bg);
   border:1px solid var(--box-border);
@@ -176,7 +176,7 @@ canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
 .invitados-list li::before{content:'🌹';font-size:.8rem}
 
 /* ═══ GALERÍA ═══ */
-.sec-galeria{background:linear-gradient(180deg,#1a0a10 0%,#0d0508 100%);padding:4rem 1.5rem;text-align:center}
+.sec-galeria{background:linear-gradient(160deg,#0a0015 0%,#15003a 100%);padding:4rem 1.5rem;text-align:center}
 .galeria-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:400px;margin:2rem auto 0}
 .galeria-grid img{
   width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;
@@ -186,7 +186,7 @@ canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
 .galeria-grid img:hover{transform:scale(1.03);border-color:var(--gl)}
 
 /* ═══ DETALLES ═══ */
-.sec-detalles{background:var(--dark);padding:4rem 1.5rem;text-align:center}
+.sec-detalles{background:linear-gradient(160deg,#1a0a10 0%,#2a0518 100%);padding:4rem 1.5rem;text-align:center}
 .detalles-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:400px;margin:2rem auto 0}
 .detalle-card{
   background:var(--box-bg);
@@ -203,7 +203,7 @@ canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
 .detalle-hint{font-size:.65rem;color:rgba(255,255,255,.6);font-weight:600}
 
 /* ═══ DRESS CODE ═══ */
-.sec-dresscode{background:linear-gradient(180deg,#0d0508 0%,#1a0a10 100%);padding:4rem 2rem;text-align:center}
+.sec-dresscode{background:linear-gradient(160deg,#0a0015 0%,#12003a 100%);padding:4rem 2rem;text-align:center}
 .dresscode-box{
   background:var(--box-bg);
   border:1px solid var(--box-border);
@@ -221,7 +221,7 @@ canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
 .dresscode-txt p{font-size:.85rem;color:var(--white);margin-top:2px}
 
 /* ═══ CANCIÓN ═══ */
-.sec-cancion{background:var(--dark);padding:4rem 2rem;text-align:center}
+.sec-cancion{background:linear-gradient(160deg,#1a0a10 0%,#2a0518 100%);padding:4rem 2rem;text-align:center}
 .cancion-box{
   background:var(--box-bg);
   border:1px solid var(--box-border);
@@ -243,7 +243,7 @@ canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
 .btn-accion:active{transform:scale(.97)}
 
 /* ═══ REGALO ═══ */
-.sec-regalo{background:linear-gradient(180deg,#1a0a10 0%,#0d0508 100%);padding:4rem 2rem;text-align:center}
+.sec-regalo{background:linear-gradient(160deg,#0a0015 0%,#12003a 100%);padding:4rem 2rem;text-align:center}
 .regalo-box{
   background:var(--box-bg);
   border:1px solid var(--box-border);
@@ -261,7 +261,7 @@ canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
 .cvu-row span:last-child{font-size:.85rem;font-weight:600;color:var(--white)}
 
 /* ═══ FOTOS FIESTA ═══ */
-.sec-fotos-fiesta{background:var(--dark);padding:4rem 2rem;text-align:center}
+.sec-fotos-fiesta{background:linear-gradient(160deg,#1a0a10 0%,#2a0518 100%);padding:4rem 2rem;text-align:center}
 .fotos-box{
   background:var(--box-bg);
   border:1px solid var(--box-border);
@@ -281,7 +281,7 @@ canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
 .btn-drive:hover{transform:scale(1.04)}
 
 /* ═══ CONFIRMACIÓN ═══ */
-.sec-confirm{background:linear-gradient(180deg,#1a0a10 0%,#0d0508 100%);padding:5rem 2rem;text-align:center}
+.sec-confirm{background:linear-gradient(160deg,#0a0015 0%,#2a0518 100%);padding:5rem 2rem;text-align:center}
 .confirm-emoji{font-size:4rem;display:block;margin-bottom:1rem;animation:spin-slow 4s ease-in-out infinite}
 @keyframes spin-slow{0%,100%{transform:rotate(-5deg) scale(1)}50%{transform:rotate(5deg) scale(1.05)}}
 
@@ -333,7 +333,7 @@ canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
 <audio id="musica" loop><source src="musica.mp3" type="audio/mpeg"></audio>
 <button id="btn-musica" onclick="toggleMusica()">🎵</button>
 <div class="petals-bg" id="petals"></div>
-<canvas id="c" style="position:fixed;top:0;left:0;pointer-events:none;z-index:1;"></canvas>
+<canvas id="c" style="position:fixed;top:0;left:0;pointer-events:none;z-index:9998;"></canvas>
 
 <div class="page">
 
@@ -505,26 +505,103 @@ const cv=document.getElementById('c'),cx=cv.getContext('2d');
 let W,H;
 const resize=()=>{W=cv.width=window.innerWidth;H=cv.height=window.innerHeight};
 window.addEventListener('resize',resize);resize();
-const pts=Array.from({length:80},(_,i)=>({
-  x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,
-  r:Math.random()*2+.5,dx:(Math.random()-.5)*.3,dy:(Math.random()-.5)*.3,
-  col:i%2===0?'#d4607a':'#c9963e',
-  a:Math.random()*.3+.05,blink:i>60,
-  blinkSpeed:Math.random()*.02+.005,blinkPhase:Math.random()*Math.PI*2
+
+// Paleta elegante: rosa, dorado, blanco, lila
+const colores=['#d4607a','#c9963e','#f0d080','#ffffff','#e8b4c8','#9c7fc0'];
+
+// Tipo 1: partículas flotantes suaves
+const flotantes=Array.from({length:60},()=>({
+  x:Math.random()*window.innerWidth,
+  y:Math.random()*window.innerHeight,
+  r:Math.random()*1.8+.3,
+  dx:(Math.random()-.5)*.25,
+  dy:(Math.random()-.5)*.25,
+  col:colores[Math.floor(Math.random()*colores.length)],
+  a:Math.random()*.25+.05,
+  phase:Math.random()*Math.PI*2,
+  speed:Math.random()*.008+.003,
 }));
+
+// Tipo 2: estrellas que destellan (brillos)
+const estrellas=Array.from({length:40},()=>({
+  x:Math.random()*window.innerWidth,
+  y:Math.random()*window.innerHeight,
+  r:Math.random()*2.5+1,
+  col:colores[Math.floor(Math.random()*3)+2], // solo blancos y dorados
+  phase:Math.random()*Math.PI*2,
+  speed:Math.random()*.04+.015,
+  maxA:.7,
+}));
+
+// Tipo 3: destellos grandes y esporádicos
+const destellos=Array.from({length:12},()=>({
+  x:Math.random()*window.innerWidth,
+  y:Math.random()*window.innerHeight,
+  r:Math.random()*5+3,
+  col:'#f0d080',
+  phase:Math.random()*Math.PI*2,
+  speed:Math.random()*.02+.005,
+  maxA:.35,
+}));
+
+// Función para dibujar estrella de 4 puntas
+function drawStar(x,y,r,a,col){
+  cx.save();
+  cx.globalAlpha=a;
+  cx.fillStyle=col;
+  cx.shadowColor=col;
+  cx.shadowBlur=r*4;
+  cx.beginPath();
+  for(let i=0;i<8;i++){
+    const angle=i*Math.PI/4;
+    const rad=i%2===0?r:r*.35;
+    i===0?cx.moveTo(x+rad*Math.cos(angle),y+rad*Math.sin(angle))
+         :cx.lineTo(x+rad*Math.cos(angle),y+rad*Math.sin(angle));
+  }
+  cx.closePath();cx.fill();
+  cx.restore();
+}
+
 let frame=0;
 (function loop(){
-  frame++;cx.clearRect(0,0,W,H);
-  pts.forEach(p=>{
-    let alpha=p.a;
-    if(p.blink)alpha=p.a*(.5+.5*Math.sin(frame*p.blinkSpeed+p.blinkPhase));
+  frame++;
+  cx.clearRect(0,0,W,H);
+
+  // Partículas flotantes
+  flotantes.forEach(p=>{
+    const alpha=p.a*(.6+.4*Math.sin(frame*p.speed+p.phase));
     cx.beginPath();cx.arc(p.x,p.y,p.r,0,Math.PI*2);
     cx.fillStyle=p.col;cx.globalAlpha=alpha;cx.fill();
     p.x+=p.dx;p.y+=p.dy;
     if(p.x<0)p.x=W;if(p.x>W)p.x=0;
     if(p.y<0)p.y=H;if(p.y>H)p.y=0;
   });
-  cx.globalAlpha=1;requestAnimationFrame(loop);
+
+  // Estrellas que destellan
+  estrellas.forEach(p=>{
+    const alpha=p.maxA*(.5+.5*Math.sin(frame*p.speed+p.phase));
+    if(alpha>.08) drawStar(p.x,p.y,p.r,alpha,p.col);
+  });
+
+  // Destellos grandes
+  destellos.forEach(p=>{
+    const alpha=p.maxA*Math.pow(Math.abs(Math.sin(frame*p.speed+p.phase)),.5);
+    if(alpha>.05){
+      cx.save();
+      cx.globalAlpha=alpha;
+      const grad=cx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3);
+      grad.addColorStop(0,'rgba(240,208,128,1)');
+      grad.addColorStop(.4,'rgba(212,96,122,.4)');
+      grad.addColorStop(1,'rgba(0,0,0,0)');
+      cx.fillStyle=grad;
+      cx.beginPath();cx.arc(p.x,p.y,p.r*3,0,Math.PI*2);cx.fill();
+      cx.restore();
+      drawStar(p.x,p.y,p.r,alpha*1.2,'#f0d080');
+    }
+  });
+
+  cx.globalAlpha=1;cx.shadowBlur=0;
+  requestAnimationFrame(loop);
 })();
 
 const fechaEvento=new Date('2025-06-14T20:00:00');
