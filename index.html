@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ════════════════════════════════════════
+  TÍTULO — cambiá el nombre
+════════════════════════════════════════ -->
+<title>Mis 15 · Valentina 🌹</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════
+   TEMA — EDITÁ SOLO ESTE BLOQUE
+   ════════════════════════════════════════════════════════
+   --p    = color principal (rosa)
+   --g    = dorado
+   --dark = fondo oscuro
+   --light= fondo claro
+   --text = color de texto
+
+   Otras paletas:
+   Lila y plateado:   --p:#9c6fbe; --g:#c0c0c0; --dark:#1a0a2e; --light:#f5f0ff; --text:#2d1f3d;
+   Negro y dorado:    --p:#1a1a1a; --g:#d4af37; --dark:#0a0a0a; --light:#1a1a1a; --text:#f5e6c8;
+   Borgoña/champagne: --p:#800020; --g:#f7e7ce; --dark:#2a0010; --light:#fff8f0; --text:#3d0015;
+════════════════════════════════════════════════════════ -->
+:root{
+  --p:#d4607a;       /* rosa principal */
+  --ps:#f9a8b8;      /* rosa suave */
+  --g:#c9963e;       /* dorado */
+  --gl:#f0d080;      /* dorado claro */
+  --dark:#1a0a10;    /* fondo oscuro */
+  --light:#fff5f7;   /* fondo claro */
+  --card:#fff0f3;    /* fondo cards */
+  --text:#3d1525;    /* texto */
+  --white:#fff;
+
+  /* ════ RECUADROS ════
+     Cambiá estos colores por pedido */
+  --box-dark: rgba(26,10,16,0.75);
+  --box-gold: rgba(201,150,62,0.15);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--dark);
+  color:var(--text);
+  overflow-x:hidden;
+  cursor:default;
+}
+
+/* ─── PÉTALOS ANIMADOS DE FONDO ─── */
+.petals-bg{
+  position:fixed;inset:0;z-index:0;
+  pointer-events:none;overflow:hidden;
+}
+.petal{
+  position:absolute;
+  font-size:1.2rem;
+  opacity:0;
+  animation:petal-fall linear infinite;
+}
+@keyframes petal-fall{
+  0%  {opacity:0;transform:translateY(-20px) rotate(0deg)}
+  10% {opacity:.6}
+  90% {opacity:.3}
+  100%{opacity:0;transform:translateY(100vh) rotate(360deg)}
+}
+
+canvas{position:fixed;inset:0;z-index:1;pointer-events:none}
+
+/* ─── MÚSICA ─── */
+#btn-musica{
+  position:fixed;bottom:24px;right:24px;z-index:9999;
+  background:linear-gradient(135deg,var(--p),var(--g));
+  color:#fff;border:none;border-radius:50%;
+  width:52px;height:52px;font-size:1.3rem;
+  cursor:pointer;box-shadow:0 4px 20px rgba(212,96,122,.5);
+  transition:transform .2s;
+}
+#btn-musica:hover{transform:scale(1.1)}
+
+/* ─── PÁGINA ─── */
+.page{position:relative;z-index:2}
+
+/* ════════════════════════
+   SECCIÓN 1 — PORTADA
+════════════════════════ */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:4rem 2rem;text-align:center;
+  background:linear-gradient(180deg,#2a0a18 0%,#1a0a10 60%,#0d0508 100%);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 30%,rgba(212,96,122,.2) 0%,transparent 70%);
+}
+
+.hero-corona{
+  font-size:3rem;margin-bottom:1rem;
+  animation:corona-float 3s ease-in-out infinite;
+  display:block;
+}
+@keyframes corona-float{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%    {transform:translateY(-12px) rotate(3deg)}
+}
+
+/* ══════════════════════════════════
+  FOTO PRINCIPAL — subí foto.jpg al repo
+  Si son varias fotos, usá foto1.jpg, foto2.jpg, etc.
+══════════════════════════════════ */
+.foto-principal{
+  width:180px;height:180px;border-radius:50%;
+  object-fit:cover;display:block;margin:0 auto 2rem;
+  border:4px solid var(--gl);
+  box-shadow:
+    0 0 0 8px rgba(201,150,62,.15),
+    0 0 40px rgba(212,96,122,.4),
+    0 8px 40px rgba(0,0,0,.5);
+  animation:foto-glow 3s ease-in-out infinite;
+}
+@keyframes foto-glow{
+  0%,100%{box-shadow:0 0 0 8px rgba(201,150,62,.15),0 0 40px rgba(212,96,122,.3),0 8px 40px rgba(0,0,0,.5)}
+  50%    {box-shadow:0 0 0 16px rgba(201,150,62,.08),0 0 70px rgba(212,96,122,.5),0 8px 40px rgba(0,0,0,.5)}
+}
+
+.hero-pre{
+  font-size:.7rem;font-weight:600;letter-spacing:5px;
+  text-transform:uppercase;color:var(--gl);
+  margin-bottom:.8rem;display:block;
+}
+
+/* ══════════════════════════════════
+  NOMBRE DE LA QUINCEAÑERA
+══════════════════════════════════ */
+.hero-nombre{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,14vw,6rem);
+  font-weight:300;font-style:italic;
+  color:var(--white);line-height:1;
+  margin-bottom:.5rem;
+  text-shadow:0 2px 30px rgba(212,96,122,.5);
+  animation:nombre-in 1s ease both;
+}
+@keyframes nombre-in{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-style:italic;
+  color:var(--gl);margin-bottom:2rem;letter-spacing:3px;
+}
+
+/* ══════════════════════════════════
+  FECHA DEL EVENTO
+══════════════════════════════════ */
+.hero-fecha{
+  font-size:.8rem;font-weight:600;letter-spacing:4px;
+  text-transform:uppercase;color:var(--ps);
+  background:var(--box-dark);
+  border:1px solid rgba(201,150,62,.3);
+  border-radius:50px;padding:8px 24px;
+  display:inline-block;margin-bottom:3rem;
+}
+
+.scroll-hint{
+  font-size:.65rem;color:rgba(255,255,255,.35);
+  font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  animation:blink 2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:.35}50%{opacity:.8}}
+
+/* ─── SEPARADORES ─── */
+.sep{width:100%;line-height:0;position:relative;z-index:3}
+.ornament{
+  text-align:center;padding:1.5rem 0;
+  font-size:1.2rem;color:var(--gl);letter-spacing:8px;
+  background:var(--dark);
+}
+
+/* ════════════════════════
+   CUENTA REGRESIVA
+════════════════════════ */
+.sec-countdown{
+  background:linear-gradient(180deg,#0d0508 0%,#1a0a10 100%);
+  padding:4rem 2rem;text-align:center;
+}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;font-style:italic;
+  color:var(--gl);margin-bottom:.5rem;
+}
+.sec-subtitle{
+  font-size:.7rem;font-weight:600;letter-spacing:3px;
+  text-transform:uppercase;color:var(--ps);
+  margin-bottom:2.5rem;display:block;
+}
+
+.countdown-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:12px;max-width:380px;margin:0 auto;
+}
+.countdown-item{
+  background:var(--box-dark);
+  border:1px solid rgba(201,150,62,.25);
+  border-radius:16px;padding:1.2rem .5rem;
+}
+.countdown-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.5rem;font-weight:600;
+  color:var(--gl);line-height:1;display:block;
+}
+.countdown-lbl{
+  font-size:.55rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--ps);
+  margin-top:4px;display:block;
+}
+
+/* ════════════════════════
+   INVITADOS
+════════════════════════ */
+.sec-invitados{
+  background:var(--dark);
+  padding:4rem 2rem;text-align:center;
+}
+.invitados-box{
+  background:var(--box-dark);
+  border:1px solid rgba(201,150,62,.2);
+  border-radius:20px;padding:2rem 1.5rem;
+  max-width:380px;margin:0 auto;
+}
+
+/* ══════════════════════════════════
+  LISTA DE INVITADOS
+  Agregá o quitá <li> según corresponda
+══════════════════════════════════ -->*/
+.invitados-list{
+  list-style:none;
+  display:flex;flex-direction:column;gap:10px;
+  margin-top:1.2rem;
+}
+.invitados-list li{
+  font-size:.95rem;font-weight:600;color:var(--white);
+  background:rgba(212,96,122,.12);
+  border:1px solid rgba(212,96,122,.2);
+  border-radius:50px;padding:8px 20px;
+  display:flex;align-items:center;gap:8px;
+}
+.invitados-list li::before{content:'🌹';font-size:.8rem}
+
+/* ════════════════════════
+   GALERÍA DE FOTOS
+════════════════════════ */
+.sec-galeria{
+  background:linear-gradient(180deg,#1a0a10 0%,#0d0508 100%);
+  padding:4rem 1.5rem;text-align:center;
+}
+.galeria-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;max-width:400px;margin:2rem auto 0;
+}
+.galeria-grid img{
+  width:100%;aspect-ratio:1;
+  object-fit:cover;border-radius:12px;
+  border:2px solid rgba(201,150,62,.2);
+  transition:transform .3s,border-color .3s;
+  cursor:pointer;
+}
+.galeria-grid img:first-child{
+  grid-column:1/-1;aspect-ratio:16/9;
+}
+.galeria-grid img:hover{
+  transform:scale(1.03);border-color:var(--gl);
+}
+
+/* ════════════════════════
+   DETALLES DE LA FIESTA
+════════════════════════ */
+.sec-detalles{
+  background:var(--dark);
+  padding:4rem 1.5rem;text-align:center;
+}
+.detalles-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:12px;max-width:400px;margin:2rem auto 0;
+}
+.detalle-card{
+  background:var(--box-dark);
+  border:1px solid rgba(201,150,62,.2);
+  border-radius:18px;padding:1.4rem 1rem;
+  display:flex;flex-direction:column;gap:6px;
+  transition:border-color .3s;
+}
+.detalle-card:hover{border-color:var(--gl)}
+.detalle-card.full{grid-column:1/-1}
+.detalle-card.tap{cursor:pointer}
+.detalle-icon{font-size:1.6rem}
+.detalle-lbl{
+  font-size:.6rem;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:var(--gl);
+}
+.detalle-val{font-size:.95rem;font-weight:600;color:var(--white);line-height:1.4}
+.detalle-hint{font-size:.65rem;color:rgba(255,255,255,.4);font-weight:600}
+
+/* ════════════════════════
+   DRESS CODE
+════════════════════════ */
+.sec-dresscode{
+  background:linear-gradient(180deg,#0d0508 0%,#1a0a10 100%);
+  padding:4rem 2rem;text-align:center;
+}
+.dresscode-box{
+  background:var(--box-dark);
+  border:1px solid rgba(201,150,62,.25);
+  border-radius:20px;padding:2rem 1.5rem;
+  max-width:380px;margin:2rem auto 0;
+}
+
+/* ══════════════════════════════════
+  DRESS CODE — editá el contenido
+══════════════════════════════════ -->*/
+.dresscode-items{
+  display:flex;flex-direction:column;gap:14px;margin-top:1rem;
+}
+.dresscode-item{
+  display:flex;align-items:center;gap:14px;
+  background:rgba(212,96,122,.08);
+  border-radius:12px;padding:12px 16px;
+  text-align:left;
+}
+.dresscode-item span:first-child{font-size:1.8rem;flex-shrink:0}
+.dresscode-txt strong{
+  display:block;font-size:.8rem;font-weight:700;
+  letter-spacing:1px;color:var(--gl);text-transform:uppercase;
+}
+.dresscode-txt p{font-size:.85rem;color:rgba(255,255,255,.7);margin-top:2px}
+
+/* ════════════════════════
+   SUGERIR CANCIÓN
+════════════════════════ */
+.sec-cancion{
+  background:var(--dark);
+  padding:4rem 2rem;text-align:center;
+}
+.cancion-box{
+  background:var(--box-dark);
+  border:1px solid rgba(201,150,62,.25);
+  border-radius:20px;padding:2rem 1.5rem;
+  max-width:380px;margin:2rem auto 0;
+}
+.cancion-box p{
+  font-size:.9rem;color:rgba(255,255,255,.7);
+  line-height:1.6;margin-bottom:1.5rem;
+}
+
+/* ══════════════════════════════════
+  BOTÓN SUGERIR CANCIÓN — WhatsApp
+  Reemplazá NUMERODETELEFONO
+══════════════════════════════════ -->*/
+.btn-cancion{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,var(--p),#b04060);
+  color:#fff;text-decoration:none;
+  font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;
+  border-radius:50px;padding:.9rem 1.8rem;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 4px 20px rgba(212,96,122,.4);
+}
+.btn-cancion:hover{transform:scale(1.04)}
+.btn-cancion:active{transform:scale(.97)}
+
+/* ════════════════════════
+   REGALO / CVU
+════════════════════════ */
+.sec-regalo{
+  background:linear-gradient(180deg,#1a0a10 0%,#0d0508 100%);
+  padding:4rem 2rem;text-align:center;
+}
+.regalo-box{
+  background:var(--box-dark);
+  border:1px solid rgba(201,150,62,.3);
+  border-radius:20px;padding:2rem 1.5rem;
+  max-width:380px;margin:2rem auto 0;
+}
+.regalo-box p{
+  font-size:.9rem;color:rgba(255,255,255,.7);
+  line-height:1.6;margin-bottom:1.5rem;
+}
+
+/* ══════════════════════════════════
+  CVU — editá estos datos
+══════════════════════════════════ -->*/
+.cvu-datos{
+  background:rgba(201,150,62,.08);
+  border:1px solid rgba(201,150,62,.3);
+  border-radius:12px;padding:1.2rem;
+  margin-bottom:1.2rem;text-align:left;
+}
+.cvu-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);
+}
+.cvu-row:last-child{border-bottom:none}
+.cvu-row span:first-child{
+  font-size:.65rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--gl);
+}
+.cvu-row span:last-child{
+  font-size:.85rem;font-weight:600;color:var(--white);
+}
+.btn-copiar{
+  background:none;border:1px solid var(--gl);color:var(--gl);
+  border-radius:50px;padding:4px 12px;font-size:.7rem;
+  font-weight:700;cursor:pointer;font-family:'Montserrat',sans-serif;
+  transition:background .2s;
+}
+.btn-copiar:hover{background:rgba(201,150,62,.15)}
+
+/* ════════════════════════
+   FOTOS DE LA FIESTA / QR
+════════════════════════ */
+.sec-fotos-fiesta{
+  background:var(--dark);
+  padding:4rem 2rem;text-align:center;
+}
+.fotos-box{
+  background:var(--box-dark);
+  border:1px solid rgba(201,150,62,.25);
+  border-radius:20px;padding:2rem 1.5rem;
+  max-width:380px;margin:2rem auto 0;
+}
+.fotos-box p{
+  font-size:.9rem;color:rgba(255,255,255,.7);
+  line-height:1.6;margin-bottom:1.5rem;
+}
+
+/* QR — el QR se genera automáticamente desde la URL del Drive */
+.qr-wrap{
+  background:#fff;border-radius:12px;
+  padding:12px;display:inline-block;
+  margin-bottom:1.2rem;
+}
+.qr-wrap img{width:160px;height:160px;display:block}
+
+/* ══════════════════════════════════
+  LINK DE DRIVE — reemplazá la URL
+══════════════════════════════════ -->*/
+.btn-drive{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#4285f4,#34a853);
+  color:#fff;text-decoration:none;
+  font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;
+  border-radius:50px;padding:.9rem 1.8rem;
+  box-shadow:0 4px 20px rgba(66,133,244,.3);
+  transition:transform .2s;
+}
+.btn-drive:hover{transform:scale(1.04)}
+.btn-drive:active{transform:scale(.97)}
+
+/* ════════════════════════
+   CONFIRMACIÓN
+════════════════════════ */
+.sec-confirm{
+  background:linear-gradient(180deg,#1a0a10 0%,#0d0508 100%);
+  padding:5rem 2rem;text-align:center;
+}
+.confirm-emoji{font-size:4rem;display:block;margin-bottom:1rem;animation:spin-slow 4s ease-in-out infinite}
+@keyframes spin-slow{0%,100%{transform:rotate(-5deg) scale(1)}50%{transform:rotate(5deg) scale(1.05)}}
+
+.confirm-tit{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.5rem;font-style:italic;
+  color:var(--gl);margin-bottom:.5rem;
+}
+.confirm-sub{
+  font-size:.9rem;color:rgba(255,255,255,.6);
+  margin-bottom:2.5rem;max-width:300px;
+  margin-left:auto;margin-right:auto;line-height:1.6;
+}
+
+/* ══════════════════════════════════
+  BOTÓN WHATSAPP CONFIRMACIÓN
+  Reemplazá NUMERODETELEFONO
+══════════════════════════════════ -->*/
+.btn-wa{
+  display:inline-flex;align-items:center;gap:12px;
+  background:#25d366;color:#fff;text-decoration:none;
+  font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;
+  border-radius:50px;padding:1rem 2rem;
+  animation:wa-pulse 2s ease-in-out infinite;
+}
+@keyframes wa-pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 0 0 16px rgba(37,211,102,0)}}
+.btn-wa:active{transform:scale(.97)}
+.wa-ico{width:24px;height:24px;flex-shrink:0}
+
+.footer{
+  margin-top:3rem;font-size:.65rem;color:rgba(255,255,255,.25);
+  font-weight:600;letter-spacing:2px;text-transform:uppercase;
+}
+.footer a{color:#25d366;text-decoration:none;font-weight:700}
+
+/* MODALES */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:9000;
+  background:rgba(0,0,0,.8);backdrop-filter:blur(4px);
+  align-items:center;justify-content:center;padding:1.5rem;
+}
+.modal-overlay.active{display:flex}
+.modal{
+  background:#1a0a10;
+  border:1px solid rgba(201,150,62,.3);
+  border-radius:24px;padding:2rem 1.5rem;
+  max-width:380px;width:100%;
+  text-align:center;position:relative;
+  animation:modal-in .3s ease both;
+}
+@keyframes modal-in{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+.modal-close{
+  position:absolute;top:12px;right:16px;
+  background:none;border:none;color:rgba(255,255,255,.4);
+  font-size:1.5rem;cursor:pointer;line-height:1;
+}
+.modal h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;font-style:italic;color:var(--gl);
+  margin-bottom:1rem;
+}
+.modal p{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.6}
+
+/* SCROLL REVEAL */
+.r{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}
+.r.v{opacity:1;transform:none}
+.r.d1{transition-delay:.1s}.r.d2{transition-delay:.2s}
+.r.d3{transition-delay:.3s}.r.d4{transition-delay:.4s}
+</style>
+</head>
+<body>
+
+<!-- MÚSICA -->
+<audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+<button id="btn-musica" onclick="toggleMusica()">🎵</button>
+
+<!-- PÉTALOS DE FONDO -->
+<div class="petals-bg" id="petals"></div>
+<canvas id="c" style="position:fixed;top:0;left:0;pointer-events:none;z-index:1;"></canvas>
+
+<div class="page">
+
+<!-- ════════════════════════════════════
+  SECCIÓN 1 — PORTADA
+════════════════════════════════════ -->
+<section class="hero">
+  <span class="hero-corona r">👑</span>
+
+  <!-- FOTO PRINCIPAL — subí foto.jpg al repo -->
+  <img src="foto.jpg" alt="Foto de la quinceañera" class="foto-principal r d1">
+
+  <span class="hero-pre r d2">Te invito a celebrar</span>
+
+  <!-- NOMBRE DE LA QUINCEAÑERA -->
+  <h1 class="hero-nombre r d2">Valentina</h1>
+
+  <p class="hero-sub r d3">Mis XV Años 🌹</p>
+
+  <!-- FECHA DEL EVENTO -->
+  <div class="hero-fecha r d3">Sábado 14 de Junio · 20:00 hs</div>
+
+  <p class="scroll-hint r d4">✦ deslizá para ver ✦</p>
+</section>
+
+<div class="sep">
+  <svg viewBox="0 0 375 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" height="40">
+    <path d="M0,20 Q90,40 187,20 Q280,0 375,20 L375,40 L0,40Z" fill="#0d0508"/>
+  </svg>
+</div>
+
+<!-- ════════════════════════════════════
+  SECCIÓN 2 — CUENTA REGRESIVA
+════════════════════════════════════ -->
+<section class="sec-countdown">
+  <h2 class="sec-title r">Falta muy poco...</h2>
+  <span class="sec-subtitle r d1">Para la noche más especial</span>
+  <div class="countdown-grid r d2">
+    <div class="countdown-item">
+      <span class="countdown-num" id="cd-dias">00</span>
+      <span class="countdown-lbl">días</span>
+    </div>
+    <div class="countdown-item">
+      <span class="countdown-num" id="cd-hs">00</span>
+      <span class="countdown-lbl">horas</span>
+    </div>
+    <div class="countdown-item">
+      <span class="countdown-num" id="cd-min">00</span>
+      <span class="countdown-lbl">min</span>
+    </div>
+    <div class="countdown-item">
+      <span class="countdown-num" id="cd-seg">00</span>
+      <span class="countdown-lbl">seg</span>
+    </div>
+  </div>
+</section>
+
+<div class="ornament">✦ 🌹 ✦</div>
+
+<!-- ════════════════════════════════════
+  SECCIÓN 3 — INVITADOS
+════════════════════════════════════ -->
+<section class="sec-invitados">
+  <h2 class="sec-title r">Invitados especiales</h2>
+  <span class="sec-subtitle r d1">Personas que hacen especial esta noche</span>
+
+  <div class="invitados-box r d2">
+    <!-- ══════════════════════════════════
+      LISTA DE INVITADOS — agregá o quitá <li>
+    ══════════════════════════════════ -->
+    <ul class="invitados-list">
+      <li>Familia García</li>
+      <li>Lucía Martínez</li>
+      <li>Sofía y Camila López</li>
+      <li>Los chicos del colegio</li>
+    </ul>
+  </div>
+</section>
+
+<div class="sep" style="transform:scaleY(-1)">
+  <svg viewBox="0 0 375 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" height="40">
+    <path d="M0,20 Q90,40 187,20 Q280,0 375,20 L375,40 L0,40Z" fill="#1a0a10"/>
+  </svg>
+</div>
+
+<!-- ════════════════════════════════════
+  SECCIÓN 4 — GALERÍA DE FOTOS
+════════════════════════════════════ -->
+<section class="sec-galeria">
+  <h2 class="sec-title r">Un recorrido por mis 15 años</h2>
+  <span class="sec-subtitle r d1">Momentos que siempre voy a recordar</span>
+
+  <!-- ══════════════════════════════════
+    FOTOS DE LA QUINCEAÑERA
+    Subí las fotos al repo: galeria1.jpg, galeria2.jpg, etc.
+    La primera ocupa todo el ancho.
+    Podés agregar más <img> si querés.
+  ══════════════════════════════════ -->
+  <div class="galeria-grid r d2">
+    <img src="galeria1.jpg" alt="Foto 1" onclick="abrirFoto(this.src)">
+    <img src="galeria2.jpg" alt="Foto 2" onclick="abrirFoto(this.src)">
+    <img src="galeria3.jpg" alt="Foto 3" onclick="abrirFoto(this.src)">
+    <img src="galeria4.jpg" alt="Foto 4" onclick="abrirFoto(this.src)">
+    <img src="galeria5.jpg" alt="Foto 5" onclick="abrirFoto(this.src)">
+  </div>
+</section>
+
+<div class="ornament">✦ 🌹 ✦</div>
+
+<!-- ════════════════════════════════════
+  SECCIÓN 5 — DETALLES DE LA FIESTA
+════════════════════════════════════ -->
+<section class="sec-detalles">
+  <h2 class="sec-title r">La fiesta</h2>
+  <span class="sec-subtitle r d1">Todo lo que necesitás saber</span>
+
+  <div class="detalles-grid r d2">
+
+    <!-- FECHA -->
+    <div class="detalle-card">
+      <span class="detalle-icon">📅</span>
+      <span class="detalle-lbl">Fecha</span>
+      <span class="detalle-val">Sábado 14 de junio de 2025</span>
+    </div>
+
+    <!-- HORA -->
+    <div class="detalle-card">
+      <span class="detalle-icon">🕗</span>
+      <span class="detalle-lbl">Hora</span>
+      <span class="detalle-val">20:00 hs</span>
+    </div>
+
+    <!-- DURACIÓN -->
+    <div class="detalle-card">
+      <span class="detalle-icon">⏱</span>
+      <span class="detalle-lbl">Duración</span>
+      <span class="detalle-val">Toda la noche</span>
+    </div>
+
+    <!-- SALÓN -->
+    <div class="detalle-card">
+      <span class="detalle-icon">✨</span>
+      <span class="detalle-lbl">Salón</span>
+      <span class="detalle-val">Salón Primavera</span>
+    </div>
+
+    <!-- DIRECCIÓN → reemplazá en onclick Y en detalle-val -->
+    <div class="detalle-card full tap"
+      onclick="window.open('https://www.google.com/maps/search/?api=1&query=Av.+España+1240,+San+Juan,+Argentina','_blank')">
+      <span class="detalle-icon">📍</span>
+      <span class="detalle-lbl">Dirección</span>
+      <span class="detalle-val">Av. España 1240, San Juan</span>
+      <span class="detalle-hint">📲 Tocá para ver en Google Maps</span>
+    </div>
+
+  </div>
+</section>
+
+<div class="sep">
+  <svg viewBox="0 0 375 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" height="40">
+    <path d="M0,20 Q90,40 187,20 Q280,0 375,20 L375,40 L0,40Z" fill="#0d0508"/>
+  </svg>
+</div>
+
+<!-- ════════════════════════════════════
+  SECCIÓN 6 — DRESS CODE
+════════════════════════════════════ -->
+<section class="sec-dresscode">
+  <h2 class="sec-title r">Dress Code</h2>
+  <span class="sec-subtitle r d1">Una orientación para tu look</span>
+
+  <div class="dresscode-box r d2">
+    <div class="dresscode-items">
+
+      <!-- ══════════════════════════════════
+        DRESS CODE — editá el contenido
+      ══════════════════════════════════ -->
+      <div class="dresscode-item">
+        <span>👗</span>
+        <div class="dresscode-txt">
+          <strong>Damas</strong>
+          <p>Vestido elegante · Evitar blanco y negro</p>
+        </div>
+      </div>
+
+      <div class="dresscode-item">
+        <span>🤵</span>
+        <div class="dresscode-txt">
+          <strong>Caballeros</strong>
+          <p>Traje o camisa formal con pantalón de vestir</p>
+        </div>
+      </div>
+
+      <div class="dresscode-item">
+        <span>🎨</span>
+        <div class="dresscode-txt">
+          <strong>Paleta de colores</strong>
+          <p>Rosas, dorados, champagne y tonos pastel</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="ornament">✦ 🌹 ✦</div>
+
+<!-- ════════════════════════════════════
+  SECCIÓN 7 — SUGERIR CANCIÓN
+════════════════════════════════════ -->
+<section class="sec-cancion">
+  <h2 class="sec-title r">🎵 ¿Cuál es tu canción?</h2>
+  <span class="sec-subtitle r d1">Armemos juntos la playlist de la noche</span>
+
+  <div class="cancion-box r d2">
+    <p>¿Qué canción no puede faltar en mi fiesta? ¡Mandame tu sugerencia y la sumamos a la lista!</p>
+
+    <!-- BOTÓN → WhatsApp — reemplazá NUMERODETELEFONO -->
+    <a class="btn-cancion"
+       href="https://wa.me/NUMERODETELEFONO?text=¡Hola%20Valentina!%20Mi%20sugerencia%20de%20canción%20para%20tu%20fiesta%20es:%20"
+       target="_blank">
+      🎤 Sugerir canción
+    </a>
+  </div>
+</section>
+
+<div class="sep" style="transform:scaleY(-1)">
+  <svg viewBox="0 0 375 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" height="40">
+    <path d="M0,20 Q90,40 187,20 Q280,0 375,20 L375,40 L0,40Z" fill="#1a0a10"/>
+  </svg>
+</div>
+
+<!-- ════════════════════════════════════
+  SECCIÓN 8 — REGALO / CVU
+════════════════════════════════════ -->
+<section class="sec-regalo">
+  <h2 class="sec-title r">🎁 Si querés regalarme algo...</h2>
+  <span class="sec-subtitle r d1">Tu presencia ya es el mejor regalo</span>
+
+  <div class="regalo-box r d2">
+    <p>Si además querés hacerme un regalo, podés transferirme con estos datos:</p>
+
+    <!-- ══════════════════════════════════
+      CVU Y DATOS DE TRANSFERENCIA
+      Editá estos datos por pedido
+    ══════════════════════════════════ -->
+    <div class="cvu-datos">
+      <div class="cvu-row">
+        <span>Nombre</span>
+        <span>Valentina García</span>
+      </div>
+      <div class="cvu-row">
+        <span>Banco</span>
+        <span>Mercado Pago</span>
+      </div>
+      <div class="cvu-row">
+        <span>CVU</span>
+        <span id="cvu-num" style="font-size:.75rem">0000003100012345678901</span>
+      </div>
+      <div class="cvu-row">
+        <span>Alias</span>
+        <span id="alias-txt">valentina.garcia.mp</span>
+      </div>
+    </div>
+
+    <button class="btn-cancion" onclick="copiarCVU()" style="border:none;cursor:pointer;">
+      📋 Copiar CVU
+    </button>
+  </div>
+</section>
+
+<div class="ornament">✦ 🌹 ✦</div>
+
+<!-- ════════════════════════════════════
+  SECCIÓN 9 — SUBIR FOTOS DE LA FIESTA
+════════════════════════════════════ -->
+<section class="sec-fotos-fiesta">
+  <h2 class="sec-title r">📸 Compartí tus fotos</h2>
+  <span class="sec-subtitle r d1">Subí los recuerdos de esta noche especial</span>
+
+  <div class="fotos-box r d2">
+    <p>Escaneá el QR o tocá el botón para subir tus fotos y videos al álbum compartido de Google Drive.</p>
+
+    <!-- QR generado automáticamente desde la URL del Drive -->
+    <!-- ══════════════════════════════════
+      Reemplazá LINK_DEL_DRIVE por tu URL de Google Drive
+      El QR se genera solo a partir de esa URL
+    ══════════════════════════════════ -->
+    <div class="qr-wrap">
+      <img id="qr-img" src="" alt="QR Drive">
+    </div>
+
+    <br>
+
+    <!-- LINK DE DRIVE — reemplazá la URL -->
+    <a class="btn-drive" href="LINK_DEL_DRIVE" target="_blank">
+      📁 Subir fotos al álbum
+    </a>
+  </div>
+</section>
+
+<div class="sep">
+  <svg viewBox="0 0 375 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" height="40">
+    <path d="M0,20 Q90,40 187,20 Q280,0 375,20 L375,40 L0,40Z" fill="#1a0a10"/>
+  </svg>
+</div>
+
+<!-- ════════════════════════════════════
+  SECCIÓN 10 — CONFIRMACIÓN
+════════════════════════════════════ -->
+<section class="sec-confirm">
+  <span class="confirm-emoji r">🌹</span>
+  <h2 class="confirm-tit r d1">¡Confirmá tu asistencia!</h2>
+  <p class="confirm-sub r d2">Es importante que nos avises si venís para tenerte en cuenta. ¡Te esperamos!</p>
+
+  <!-- BOTÓN WHATSAPP — reemplazá NUMERODETELEFONO -->
+  <a class="btn-wa r d3"
+     href="https://wa.me/NUMERODETELEFONO?text=¡Hola%20Valentina!%20Confirmo%20mi%20asistencia%20a%20tus%2015%20🌹"
+     target="_blank">
+    <svg class="wa-ico" viewBox="0 0 32 32" fill="none">
+      <path d="M16 3C8.82 3 3 8.82 3 16c0 2.3.62 4.5 1.7 6.4L3 29l6.8-1.78A13 13 0 0016 29c7.18 0 13-5.82 13-13S23.18 3 16 3z" fill="white" fill-opacity=".2"/>
+      <path d="M16 5C9.925 5 5 9.925 5 16c0 2.1.563 4.072 1.547 5.768L5.25 26.75l5.13-1.344A10.96 10.96 0 0016 27c6.075 0 11-4.925 11-11S22.075 5 16 5zm-2.94 6c.248 0 .512.002.735.012.263.01.55.027.825.633.32.687.98 2.394 1.063 2.567.083.174.138.376.028.607-.11.23-.165.376-.33.578-.165.202-.347.45-.495.605-.165.174-.338.366-.146.716.193.35.86 1.42 1.85 2.3 1.274 1.137 2.348 1.485 2.688 1.65.34.165.54.138.743-.083.202-.22.852-.99 1.08-1.33.229-.34.458-.284.77-.174.311.11 1.98.935 2.32 1.1.34.165.567.247.65.385.083.138.083.798-.193 1.568-.275.77-1.613 1.513-2.217 1.568-.57.055-1.1.257-3.703-.77-3.117-1.228-5.08-4.42-5.233-4.62-.156-.202-1.265-1.678-1.265-3.2 0-1.522.798-2.274 1.081-2.586.284-.312.615-.394.825-.394z" fill="white"/>
+    </svg>
+    Confirmar asistencia
+  </a>
+
+  <p class="footer r d4">
+    Invitación digital ·
+    <a href="https://wa.me/5492645234646" target="_blank">📱 264-523-4646</a>
+    · ServiGraf · San Juan
+  </p>
+</section>
+
+</div><!-- fin .page -->
+
+<!-- MODAL FOTO AMPLIADA -->
+<div class="modal-overlay" id="modal-foto" onclick="cerrarModal('modal-foto')">
+  <img id="modal-foto-img" src="" alt="" style="max-width:100%;max-height:90vh;border-radius:12px;">
+</div>
+
+<script>
+// ── PÉTALOS ──
+const petalContainer = document.getElementById('petals');
+const petalEmojis = ['🌸','🌹','🌺','✿','❀'];
+for(let i=0;i<25;i++){
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.textContent = petalEmojis[Math.floor(Math.random()*petalEmojis.length)];
+  p.style.left = Math.random()*100+'vw';
+  p.style.fontSize = (Math.random()*.8+.6)+'rem';
+  p.style.animationDuration = (Math.random()*10+8)+'s';
+  p.style.animationDelay = (Math.random()*10)+'s';
+  petalContainer.appendChild(p);
+}
+
+// ── PARTÍCULAS ──
+const cv=document.getElementById('c'),cx=cv.getContext('2d');
+let W,H;
+const resize=()=>{W=cv.width=window.innerWidth;H=cv.height=window.innerHeight};
+window.addEventListener('resize',resize);resize();
+const pts=Array.from({length:80},(_,i)=>({
+  x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,
+  r:Math.random()*2+.5,
+  dx:(Math.random()-.5)*.3,dy:(Math.random()-.5)*.3,
+  col:i%2===0?'#d4607a':'#c9963e',
+  a:Math.random()*.3+.05,
+  blink:i>60,blinkSpeed:Math.random()*.02+.005,blinkPhase:Math.random()*Math.PI*2
+}));
+let frame=0;
+(function loop(){
+  frame++;cx.clearRect(0,0,W,H);
+  pts.forEach(p=>{
+    let alpha=p.a;
+    if(p.blink) alpha=p.a*(.5+.5*Math.sin(frame*p.blinkSpeed+p.blinkPhase));
+    cx.beginPath();cx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    cx.fillStyle=p.col;cx.globalAlpha=alpha;cx.fill();
+    p.x+=p.dx;p.y+=p.dy;
+    if(p.x<0)p.x=W;if(p.x>W)p.x=0;
+    if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+  });
+  cx.globalAlpha=1;requestAnimationFrame(loop);
+})();
+
+// ── CUENTA REGRESIVA ──
+// ══════════════════════════════════
+// FECHA DEL EVENTO — cambiá este valor
+// Formato: 'YYYY-MM-DDTHH:MM:SS'
+// ══════════════════════════════════
+const fechaEvento = new Date('2025-06-14T20:00:00');
+function actualizarCuentaRegresiva(){
+  const ahora = new Date();
+  const diff = fechaEvento - ahora;
+  if(diff <= 0){
+    document.getElementById('cd-dias').textContent='00';
+    document.getElementById('cd-hs').textContent='00';
+    document.getElementById('cd-min').textContent='00';
+    document.getElementById('cd-seg').textContent='00';
+    return;
+  }
+  const dias = Math.floor(diff/86400000);
+  const hs   = Math.floor((diff%86400000)/3600000);
+  const min  = Math.floor((diff%3600000)/60000);
+  const seg  = Math.floor((diff%60000)/1000);
+  document.getElementById('cd-dias').textContent=String(dias).padStart(2,'0');
+  document.getElementById('cd-hs').textContent=String(hs).padStart(2,'0');
+  document.getElementById('cd-min').textContent=String(min).padStart(2,'0');
+  document.getElementById('cd-seg').textContent=String(seg).padStart(2,'0');
+}
+actualizarCuentaRegresiva();
+setInterval(actualizarCuentaRegresiva,1000);
+
+// ── QR AUTOMÁTICO ──
+// ══════════════════════════════════
+// Reemplazá LINK_DEL_DRIVE por tu URL real de Google Drive
+// El QR se genera automáticamente
+// ══════════════════════════════════
+const driveUrl = 'LINK_DEL_DRIVE';
+document.getElementById('qr-img').src =
+  'https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=' + encodeURIComponent(driveUrl);
+
+// También actualizá el href del botón
+document.querySelector('.btn-drive').href = driveUrl;
+
+// ── MÚSICA ──
+function toggleMusica(){
+  const audio=document.getElementById('musica');
+  const btn=document.getElementById('btn-musica');
+  audio.volume=0.4;
+  if(audio.paused){audio.play();btn.innerHTML='🔇';}
+  else{audio.pause();btn.innerHTML='🎵';}
+}
+
+// ── COPIAR CVU ──
+function copiarCVU(){
+  const cvu = document.getElementById('cvu-num').textContent.trim();
+  navigator.clipboard.writeText(cvu).then(()=>{
+    alert('✅ CVU copiado al portapapeles');
+  });
+}
+
+// ── MODAL FOTO ──
+function abrirFoto(src){
+  document.getElementById('modal-foto-img').src=src;
+  document.getElementById('modal-foto').classList.add('active');
+}
+function cerrarModal(id){
+  document.getElementById(id).classList.remove('active');
+}
+
+// ── SCROLL REVEAL ──
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');obs.unobserve(e.target)}});
+},{threshold:.1});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
