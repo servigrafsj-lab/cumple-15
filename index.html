@@ -479,7 +479,7 @@ let frame=0;
   cx.globalAlpha=1;cx.shadowBlur=0;requestAnimationFrame(loop);
 })();
 
-const fechaEvento=new Date('2025-06-14T20:00:00');
+const fechaEvento=new Date('2026-06-14T20:00:00');
 function actualizarCR(){
   const diff=fechaEvento-new Date();
   if(diff<=0){['cd-dias','cd-hs','cd-min','cd-seg'].forEach(id=>document.getElementById(id).textContent='00');return}
