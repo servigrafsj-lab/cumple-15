@@ -51,13 +51,31 @@ canvas{position:fixed;inset:0;z-index:9998;pointer-events:none}
   min-height:100vh;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   padding:4rem 2rem;text-align:center;
-  background:linear-gradient(180deg,#2a0a18 0%,#1a0a10 60%,#0d0508 100%);
+  /* ══════════════════════════════════════════════
+     FOTO DE FONDO — subí hero-bg.jpg al repo
+     Cambiá "center top" según dónde queda la cara:
+       center top    = desde arriba
+       center center = centrado
+       center 20%    = un poco desde arriba
+  ══════════════════════════════════════════════ */
+  background-image: url('hero-bg.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
   position:relative;overflow:hidden;
 }
 .hero::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 30%,rgba(212,96,122,.2) 0%,transparent 70%);
+  content:'';position:absolute;inset:0;z-index:0;
+  /* overlay degradado — más transparente arriba, más oscuro abajo */
+  background:linear-gradient(
+    180deg,
+    rgba(0,0,0,0.20) 0%,
+    rgba(26,10,16,0.60) 55%,
+    rgba(8,2,5,0.93) 100%
+  );
 }
+/* todos los elementos del hero por encima del overlay */
+.hero > *{position:relative;z-index:1;}
 
 .hero-corona{font-size:3rem;margin-bottom:1rem;animation:corona-float 3s ease-in-out infinite;display:block}
 @keyframes corona-float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
@@ -131,7 +149,6 @@ canvas{position:fixed;inset:0;z-index:9998;pointer-events:none}
   background:var(--dark);
 }
 
-/* ═══ TÍTULOS ═══ */
 .sec-title{
   font-family:'Cormorant Garamond',serif;
   font-size:2rem;font-style:italic;color:var(--gl);
@@ -144,56 +161,27 @@ canvas{position:fixed;inset:0;z-index:9998;pointer-events:none}
   border-radius:50px;padding:5px 18px;
 }
 
-/* ═══ COUNTDOWN ═══ */
 .sec-countdown{background:linear-gradient(160deg,#0a0015 0%,#12003a 100%);padding:4rem 2rem;text-align:center}
 .countdown-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:380px;margin:0 auto}
-.countdown-item{
-  background:var(--box-bg);
-  border:1px solid var(--box-border);
-  border-radius:16px;padding:1.2rem .5rem;
-}
-.countdown-num{
-  font-family:'Cormorant Garamond',serif;
-  font-size:2.5rem;font-weight:600;color:var(--gl);line-height:1;display:block;
-}
+.countdown-item{background:var(--box-bg);border:1px solid var(--box-border);border-radius:16px;padding:1.2rem .5rem;}
+.countdown-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:600;color:var(--gl);line-height:1;display:block;}
 .countdown-lbl{font-size:.55rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ps);margin-top:4px;display:block}
 
-/* ═══ INVITADOS ═══ */
 .sec-invitados{background:linear-gradient(160deg,#1a0a10 0%,#2a0518 100%);padding:4rem 2rem;text-align:center}
-.invitados-box{
-  background:var(--box-bg);
-  border:1px solid var(--box-border);
-  border-radius:20px;padding:2rem 1.5rem;max-width:380px;margin:0 auto;
-}
+.invitados-box{background:var(--box-bg);border:1px solid var(--box-border);border-radius:20px;padding:2rem 1.5rem;max-width:380px;margin:0 auto;}
 .invitados-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:1.2rem}
-.invitados-list li{
-  font-size:.95rem;font-weight:600;color:var(--white);
-  background:var(--box-pink);
-  border:1px solid rgba(212,96,122,.35);
-  border-radius:50px;padding:8px 20px;
-  display:flex;align-items:center;gap:8px;
-}
+.invitados-list li{font-size:.95rem;font-weight:600;color:var(--white);background:var(--box-pink);border:1px solid rgba(212,96,122,.35);border-radius:50px;padding:8px 20px;display:flex;align-items:center;gap:8px;}
 .invitados-list li::before{content:'🌹';font-size:.8rem}
 
-/* ═══ GALERÍA ═══ */
 .sec-galeria{background:linear-gradient(160deg,#0a0015 0%,#15003a 100%);padding:4rem 1.5rem;text-align:center}
 .galeria-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:400px;margin:2rem auto 0}
-.galeria-grid img{
-  width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;
-  border:2px solid var(--box-border);transition:transform .3s,border-color .3s;cursor:pointer;
-}
+.galeria-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;border:2px solid var(--box-border);transition:transform .3s,border-color .3s;cursor:pointer;}
 .galeria-grid img:first-child{grid-column:1/-1;aspect-ratio:16/9}
 .galeria-grid img:hover{transform:scale(1.03);border-color:var(--gl)}
 
-/* ═══ DETALLES ═══ */
 .sec-detalles{background:linear-gradient(160deg,#1a0a10 0%,#2a0518 100%);padding:4rem 1.5rem;text-align:center}
 .detalles-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:400px;margin:2rem auto 0}
-.detalle-card{
-  background:var(--box-bg);
-  border:1px solid var(--box-border);
-  border-radius:18px;padding:1.4rem 1rem;
-  display:flex;flex-direction:column;gap:6px;transition:border-color .3s;
-}
+.detalle-card{background:var(--box-bg);border:1px solid var(--box-border);border-radius:18px;padding:1.4rem 1rem;display:flex;flex-direction:column;gap:6px;transition:border-color .3s;}
 .detalle-card:hover{border-color:var(--gl)}
 .detalle-card.full{grid-column:1/-1}
 .detalle-card.tap{cursor:pointer}
@@ -202,125 +190,54 @@ canvas{position:fixed;inset:0;z-index:9998;pointer-events:none}
 .detalle-val{font-size:.95rem;font-weight:600;color:var(--white);line-height:1.4}
 .detalle-hint{font-size:.65rem;color:rgba(255,255,255,.6);font-weight:600}
 
-/* ═══ DRESS CODE ═══ */
 .sec-dresscode{background:linear-gradient(160deg,#0a0015 0%,#12003a 100%);padding:4rem 2rem;text-align:center}
-.dresscode-box{
-  background:var(--box-bg);
-  border:1px solid var(--box-border);
-  border-radius:20px;padding:2rem 1.5rem;max-width:380px;margin:2rem auto 0;
-}
+.dresscode-box{background:var(--box-bg);border:1px solid var(--box-border);border-radius:20px;padding:2rem 1.5rem;max-width:380px;margin:2rem auto 0;}
 .dresscode-items{display:flex;flex-direction:column;gap:14px;margin-top:1rem}
-.dresscode-item{
-  display:flex;align-items:center;gap:14px;
-  background:var(--box-pink);
-  border:1px solid rgba(212,96,122,.3);
-  border-radius:12px;padding:12px 16px;text-align:left;
-}
+.dresscode-item{display:flex;align-items:center;gap:14px;background:var(--box-pink);border:1px solid rgba(212,96,122,.3);border-radius:12px;padding:12px 16px;text-align:left;}
 .dresscode-item span:first-child{font-size:1.8rem;flex-shrink:0}
 .dresscode-txt strong{display:block;font-size:.8rem;font-weight:700;letter-spacing:1px;color:var(--gl);text-transform:uppercase}
 .dresscode-txt p{font-size:.85rem;color:var(--white);margin-top:2px}
 
-/* ═══ CANCIÓN ═══ */
 .sec-cancion{background:linear-gradient(160deg,#1a0a10 0%,#2a0518 100%);padding:4rem 2rem;text-align:center}
-.cancion-box{
-  background:var(--box-bg);
-  border:1px solid var(--box-border);
-  border-radius:20px;padding:2rem 1.5rem;max-width:380px;margin:2rem auto 0;
-}
+.cancion-box{background:var(--box-bg);border:1px solid var(--box-border);border-radius:20px;padding:2rem 1.5rem;max-width:380px;margin:2rem auto 0;}
 .cancion-box p{font-size:.9rem;color:var(--white);line-height:1.6;margin-bottom:1.5rem}
 
-.btn-accion{
-  display:inline-flex;align-items:center;gap:10px;
-  background:linear-gradient(135deg,var(--p),#b04060);
-  color:#fff;text-decoration:none;
-  font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;
-  border-radius:50px;padding:.9rem 1.8rem;
-  transition:transform .2s,box-shadow .2s;
-  box-shadow:0 4px 20px rgba(212,96,122,.4);
-  border:none;cursor:pointer;
-}
+.btn-accion{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--p),#b04060);color:#fff;text-decoration:none;font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;border-radius:50px;padding:.9rem 1.8rem;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(212,96,122,.4);border:none;cursor:pointer;}
 .btn-accion:hover{transform:scale(1.04)}
 .btn-accion:active{transform:scale(.97)}
 
-/* ═══ REGALO ═══ */
 .sec-regalo{background:linear-gradient(160deg,#0a0015 0%,#12003a 100%);padding:4rem 2rem;text-align:center}
-.regalo-box{
-  background:var(--box-bg);
-  border:1px solid var(--box-border);
-  border-radius:20px;padding:2rem 1.5rem;max-width:380px;margin:2rem auto 0;
-}
+.regalo-box{background:var(--box-bg);border:1px solid var(--box-border);border-radius:20px;padding:2rem 1.5rem;max-width:380px;margin:2rem auto 0;}
 .regalo-box p{font-size:.9rem;color:var(--white);line-height:1.6;margin-bottom:1.5rem}
-.cvu-datos{
-  background:var(--box-gold);
-  border:1px solid rgba(201,150,62,.4);
-  border-radius:12px;padding:1.2rem;margin-bottom:1.2rem;text-align:left;
-}
+.cvu-datos{background:var(--box-gold);border:1px solid rgba(201,150,62,.4);border-radius:12px;padding:1.2rem;margin-bottom:1.2rem;text-align:left;}
 .cvu-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.1)}
 .cvu-row:last-child{border-bottom:none}
 .cvu-row span:first-child{font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gl)}
 .cvu-row span:last-child{font-size:.85rem;font-weight:600;color:var(--white)}
 
-/* ═══ FOTOS FIESTA ═══ */
 .sec-fotos-fiesta{background:linear-gradient(160deg,#1a0a10 0%,#2a0518 100%);padding:4rem 2rem;text-align:center}
-.fotos-box{
-  background:var(--box-bg);
-  border:1px solid var(--box-border);
-  border-radius:20px;padding:2rem 1.5rem;max-width:380px;margin:2rem auto 0;
-}
+.fotos-box{background:var(--box-bg);border:1px solid var(--box-border);border-radius:20px;padding:2rem 1.5rem;max-width:380px;margin:2rem auto 0;}
 .fotos-box p{font-size:.9rem;color:var(--white);line-height:1.6;margin-bottom:1.5rem}
 .qr-wrap{background:#fff;border-radius:12px;padding:12px;display:inline-block;margin-bottom:1.2rem}
 .qr-wrap img{width:160px;height:160px;display:block}
-.btn-drive{
-  display:inline-flex;align-items:center;gap:10px;
-  background:linear-gradient(135deg,#4285f4,#34a853);
-  color:#fff;text-decoration:none;
-  font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;
-  border-radius:50px;padding:.9rem 1.8rem;
-  box-shadow:0 4px 20px rgba(66,133,244,.3);transition:transform .2s;
-}
+.btn-drive{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#4285f4,#34a853);color:#fff;text-decoration:none;font-family:'Montserrat',sans-serif;font-size:.9rem;font-weight:700;border-radius:50px;padding:.9rem 1.8rem;box-shadow:0 4px 20px rgba(66,133,244,.3);transition:transform .2s;}
 .btn-drive:hover{transform:scale(1.04)}
 
-/* ═══ CONFIRMACIÓN ═══ */
 .sec-confirm{background:linear-gradient(160deg,#0a0015 0%,#2a0518 100%);padding:5rem 2rem;text-align:center}
 .confirm-emoji{font-size:4rem;display:block;margin-bottom:1rem;animation:spin-slow 4s ease-in-out infinite}
 @keyframes spin-slow{0%,100%{transform:rotate(-5deg) scale(1)}50%{transform:rotate(5deg) scale(1.05)}}
+.confirm-tit{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-style:italic;color:var(--gl);margin-bottom:.8rem;display:inline-block;}
+.confirm-sub{font-size:.9rem;color:var(--white);margin-bottom:2.5rem;max-width:300px;margin-left:auto;margin-right:auto;line-height:1.6;display:block;}
 
-.confirm-tit{
-  font-family:'Cormorant Garamond',serif;
-  font-size:2.5rem;font-style:italic;color:var(--gl);
-  margin-bottom:.8rem;display:inline-block;
-}
-.confirm-sub{
-  font-size:.9rem;color:var(--white);
-  margin-bottom:2.5rem;max-width:300px;
-  margin-left:auto;margin-right:auto;line-height:1.6;
-  display:block;
-}
-
-.btn-wa{
-  display:inline-flex;align-items:center;gap:12px;
-  background:#25d366;color:#fff;text-decoration:none;
-  font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;
-  border-radius:50px;padding:1rem 2rem;
-  animation:wa-pulse 2s ease-in-out infinite;
-}
+.btn-wa{display:inline-flex;align-items:center;gap:12px;background:#25d366;color:#fff;text-decoration:none;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;border-radius:50px;padding:1rem 2rem;animation:wa-pulse 2s ease-in-out infinite;}
 @keyframes wa-pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 0 0 16px rgba(37,211,102,0)}}
 .btn-wa:active{transform:scale(.97)}
 .wa-ico{width:24px;height:24px;flex-shrink:0}
 
-.footer{
-  margin-top:3rem;font-size:.65rem;color:var(--white);
-  font-weight:600;letter-spacing:2px;text-transform:uppercase;
-  background:var(--box-bg);
-  border:1px solid var(--box-border);
-  border-radius:50px;padding:6px 18px;display:inline-block;
-}
+.footer{margin-top:3rem;font-size:.65rem;color:var(--white);font-weight:600;letter-spacing:2px;text-transform:uppercase;background:var(--box-bg);border:1px solid var(--box-border);border-radius:50px;padding:6px 18px;display:inline-block;}
 .footer a{color:#25d366;text-decoration:none;font-weight:700}
 
-.modal-overlay{
-  display:none;position:fixed;inset:0;z-index:9000;
-  background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:1.5rem;
-}
+.modal-overlay{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:1.5rem;}
 .modal-overlay.active{display:flex}
 
 .r{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}
@@ -339,6 +256,7 @@ canvas{position:fixed;inset:0;z-index:9998;pointer-events:none}
 
 <section class="hero">
   <span class="hero-corona r">👑</span>
+  <!-- foto circular — podés quitarla si preferís solo el fondo -->
   <img src="foto.jpg" alt="Foto de la quinceañera" class="foto-principal r d1">
   <span class="hero-pre r d2">Te invito a celebrar</span>
   <h1 class="hero-nombre r d2">Valentina</h1>
@@ -347,7 +265,7 @@ canvas{position:fixed;inset:0;z-index:9998;pointer-events:none}
   <p class="scroll-hint r d4">✦ deslizá para ver ✦</p>
 </section>
 
-<div class="sep"><svg viewBox="0 0 375 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" height="40"><path d="M0,20 Q90,40 187,20 Q280,0 375,20 L375,40 L0,40Z" fill="#0d0508"/></svg></div>
+<div class="sep"><svg viewBox="0 0 375 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" width="100%" height="40"><path d="M0,20 Q90,40 187,20 Q280,0 375,20 L375,40 L0,40Z" fill="#0a0015"/></svg></div>
 
 <section class="sec-countdown">
   <h2 class="sec-title r">Falta muy poco...</h2>
@@ -506,102 +424,59 @@ let W,H;
 const resize=()=>{W=cv.width=window.innerWidth;H=cv.height=window.innerHeight};
 window.addEventListener('resize',resize);resize();
 
-// Paleta elegante: rosa, dorado, blanco, lila
 const colores=['#d4607a','#c9963e','#f0d080','#ffffff','#e8b4c8','#9c7fc0'];
-
-// Tipo 1: partículas flotantes suaves
 const flotantes=Array.from({length:60},()=>({
-  x:Math.random()*window.innerWidth,
-  y:Math.random()*window.innerHeight,
-  r:Math.random()*1.8+.3,
-  dx:(Math.random()-.5)*.25,
-  dy:(Math.random()-.5)*.25,
+  x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,
+  r:Math.random()*1.8+.3,dx:(Math.random()-.5)*.25,dy:(Math.random()-.5)*.25,
   col:colores[Math.floor(Math.random()*colores.length)],
-  a:Math.random()*.25+.05,
-  phase:Math.random()*Math.PI*2,
-  speed:Math.random()*.008+.003,
+  a:Math.random()*.25+.05,phase:Math.random()*Math.PI*2,speed:Math.random()*.008+.003,
 }));
-
-// Tipo 2: estrellas que destellan (brillos)
 const estrellas=Array.from({length:40},()=>({
-  x:Math.random()*window.innerWidth,
-  y:Math.random()*window.innerHeight,
-  r:Math.random()*2.5+1,
-  col:colores[Math.floor(Math.random()*3)+2], // solo blancos y dorados
-  phase:Math.random()*Math.PI*2,
-  speed:Math.random()*.04+.015,
-  maxA:.7,
+  x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,
+  r:Math.random()*2.5+1,col:colores[Math.floor(Math.random()*3)+2],
+  phase:Math.random()*Math.PI*2,speed:Math.random()*.04+.015,maxA:.7,
 }));
-
-// Tipo 3: destellos grandes y esporádicos
 const destellos=Array.from({length:12},()=>({
-  x:Math.random()*window.innerWidth,
-  y:Math.random()*window.innerHeight,
-  r:Math.random()*5+3,
-  col:'#f0d080',
-  phase:Math.random()*Math.PI*2,
-  speed:Math.random()*.02+.005,
-  maxA:.35,
+  x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight,
+  r:Math.random()*5+3,col:'#f0d080',
+  phase:Math.random()*Math.PI*2,speed:Math.random()*.02+.005,maxA:.35,
 }));
 
-// Función para dibujar estrella de 4 puntas
 function drawStar(x,y,r,a,col){
-  cx.save();
-  cx.globalAlpha=a;
-  cx.fillStyle=col;
-  cx.shadowColor=col;
-  cx.shadowBlur=r*4;
+  cx.save();cx.globalAlpha=a;cx.fillStyle=col;cx.shadowColor=col;cx.shadowBlur=r*4;
   cx.beginPath();
   for(let i=0;i<8;i++){
-    const angle=i*Math.PI/4;
-    const rad=i%2===0?r:r*.35;
-    i===0?cx.moveTo(x+rad*Math.cos(angle),y+rad*Math.sin(angle))
-         :cx.lineTo(x+rad*Math.cos(angle),y+rad*Math.sin(angle));
+    const angle=i*Math.PI/4,rad=i%2===0?r:r*.35;
+    i===0?cx.moveTo(x+rad*Math.cos(angle),y+rad*Math.sin(angle)):cx.lineTo(x+rad*Math.cos(angle),y+rad*Math.sin(angle));
   }
-  cx.closePath();cx.fill();
-  cx.restore();
+  cx.closePath();cx.fill();cx.restore();
 }
 
 let frame=0;
 (function loop(){
-  frame++;
-  cx.clearRect(0,0,W,H);
-
-  // Partículas flotantes
+  frame++;cx.clearRect(0,0,W,H);
   flotantes.forEach(p=>{
     const alpha=p.a*(.6+.4*Math.sin(frame*p.speed+p.phase));
     cx.beginPath();cx.arc(p.x,p.y,p.r,0,Math.PI*2);
     cx.fillStyle=p.col;cx.globalAlpha=alpha;cx.fill();
     p.x+=p.dx;p.y+=p.dy;
-    if(p.x<0)p.x=W;if(p.x>W)p.x=0;
-    if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+    if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
   });
-
-  // Estrellas que destellan
   estrellas.forEach(p=>{
     const alpha=p.maxA*(.5+.5*Math.sin(frame*p.speed+p.phase));
-    if(alpha>.08) drawStar(p.x,p.y,p.r,alpha,p.col);
+    if(alpha>.08)drawStar(p.x,p.y,p.r,alpha,p.col);
   });
-
-  // Destellos grandes
   destellos.forEach(p=>{
     const alpha=p.maxA*Math.pow(Math.abs(Math.sin(frame*p.speed+p.phase)),.5);
     if(alpha>.05){
-      cx.save();
-      cx.globalAlpha=alpha;
+      cx.save();cx.globalAlpha=alpha;
       const grad=cx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3);
-      grad.addColorStop(0,'rgba(240,208,128,1)');
-      grad.addColorStop(.4,'rgba(212,96,122,.4)');
-      grad.addColorStop(1,'rgba(0,0,0,0)');
-      cx.fillStyle=grad;
-      cx.beginPath();cx.arc(p.x,p.y,p.r*3,0,Math.PI*2);cx.fill();
-      cx.restore();
+      grad.addColorStop(0,'rgba(240,208,128,1)');grad.addColorStop(.4,'rgba(212,96,122,.4)');grad.addColorStop(1,'rgba(0,0,0,0)');
+      cx.fillStyle=grad;cx.beginPath();cx.arc(p.x,p.y,p.r*3,0,Math.PI*2);cx.fill();cx.restore();
       drawStar(p.x,p.y,p.r,alpha*1.2,'#f0d080');
     }
   });
-
-  cx.globalAlpha=1;cx.shadowBlur=0;
-  requestAnimationFrame(loop);
+  cx.globalAlpha=1;cx.shadowBlur=0;requestAnimationFrame(loop);
 })();
 
 const fechaEvento=new Date('2025-06-14T20:00:00');
